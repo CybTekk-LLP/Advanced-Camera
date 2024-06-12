@@ -37,7 +37,7 @@ body {
 /* Video Element */
 video {
     inline-size: 100vw;
-    block-size: 90vh;
+    block-size: 85vh;
     object-fit: cover;
     object-position: center;
 }
@@ -202,5 +202,5 @@ input[type="range"]#range{
     position: absolute;
     inset-inline-start: 50%;
     translate: -50% 0;
-    inset-block-start: 80vh;
+    inset-block-start: 75vh;
 }
