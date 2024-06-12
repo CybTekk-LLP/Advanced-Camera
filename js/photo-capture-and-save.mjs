@@ -16,10 +16,10 @@ export const capturePhoto = () => {
       ".switch-camera-video-photo-mode input[type='radio'][name='modes']:checked").value === "dual-mode"
     if (isDualMode) {
       setTimeout(() => {
-        setTimeout(()=>{
-          document.querySelector(".switch-camera-facing-mode").click()
-        }, 200)
-        drawOnCanvasAndSavePhoto(facingModeButton.dataset.facingMode === "front");
+        document.querySelector(".switch-camera-facing-mode").click()
+        setTimeout(() => {
+          drawOnCanvasAndSavePhoto(facingModeButton.dataset.facingMode === "front");
+        }, 400)
       }, 1000)
     }
     drawOnCanvasAndSavePhoto(facingModeButton.dataset.facingMode === "front");
