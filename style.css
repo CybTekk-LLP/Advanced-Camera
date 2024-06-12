@@ -102,7 +102,7 @@ video.flip {
     padding: 0.6rem;
     background-color: #1119289a;
     cursor: pointer;
-    translate: 0 -44px;
+    translate: 0 -43px;
 }
 
 .switch-camera-video-photo-mode label span {
