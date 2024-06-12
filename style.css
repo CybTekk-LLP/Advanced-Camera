@@ -211,11 +211,14 @@ video.flip {
     justify-content: center;
     visibility: hidden;
 }
-#range{
-    
+.zoom-multiplier{
+    position: absolute;
+    inline-size: max-content;
+    color: #fff;
+    font-size: 10px;
+    translate: 0 20px;
 }
 .range-container img{
     position: absolute;
-    /* opacity: 0.9; */
     pointer-events: none;
 }
