@@ -200,5 +200,7 @@ video.flip {
 
 input[type="range"]#range{
     position: absolute;
-    inset-inline-start: 0;
+    inset-inline-end: -30px;
+    rotate: 90deg;
+    inset-block-start: 50%;
 }
