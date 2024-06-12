@@ -19,6 +19,7 @@ export const streamWebCamVideo = (isFrontCamera = true) => {
       const capabilities = track.getCapabilities();
       const settings = track.getSettings();
 
+
       const input = document.querySelector('input[type="range"]');
 
       // Check whether zoom is supported or not.
@@ -32,13 +33,15 @@ export const streamWebCamVideo = (isFrontCamera = true) => {
       input.step = capabilities.zoom.step;
       input.value = settings.zoom;
 
-      document.querySelector(".zoom-multiplier").textContent = "0x    0.25x    0.75x    10x"
+      document.querySelector(".zoom-multiplier").textContent = `${capabilities.zoom.min
+        } ${(capabilities.zoom.max + 3 * capabilities.zoom.min) / 4} ${(3 * capabilities.zoom.max + capabilities.zoom.min) / 4} ${capabilities.zoom.max}`
+
       console.log("min:", capabilities.zoom.min)
       console.log("max:", capabilities.zoom.max)
       console.log("step:", capabilities.zoom.step)
       console.log("value:", settings.zoom)
 
-      
+
 
       input.oninput = function (event) {
         track.applyConstraints({ advanced: [{ zoom: event.target.value }] });

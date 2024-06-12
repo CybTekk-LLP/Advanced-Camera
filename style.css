@@ -209,6 +209,7 @@ video.flip {
     inset-block-start: 75vh;   
     display: flex;
     justify-content: center;
+    word-spacing: 15px;
     visibility: hidden;
 }
 .zoom-multiplier{
@@ -216,7 +217,7 @@ video.flip {
     inline-size: max-content;
     color: #fff;
     font-size: 10px;
-    translate: 0 20px;
+    translate: 0 18px;
 }
 .range-container img{
     position: absolute;
