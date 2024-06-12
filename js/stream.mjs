@@ -45,7 +45,7 @@ export const streamWebCamVideo = (isFrontCamera = true) => {
 
       input.oninput = function (event) {
         track.applyConstraints({ advanced: [{ zoom: event.target.value }] });
-        document.querySelector(".slider").style.left = input.value * 50 + "px";
+        document.querySelector(".slider").style.left = input.value * 12 + "px";
       }
       input.hidden = false;
       document.querySelector(".range-container").style.visibility = "visible"
