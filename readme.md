@@ -2,7 +2,7 @@
 
 A vanilla JavaScript project packed with all the basic features of a camera, such as photo, video, switching camera and other necessary options, with everything easy-to-customise and use!
 
-<img src="./assets/qr-code.png" height="250px">
+<img src="./favicon.png" height="50px">
 
 ## Additional Customization Options (coming soon)
 
