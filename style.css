@@ -68,6 +68,7 @@ video.flip {
 .lenses>.image {
     position: relative;
 }
+
 .lenses>.image>.preview {
     object-fit: cover;
     border-radius: 4px;
@@ -76,8 +77,9 @@ video.flip {
 }
 
 .lenses>.image>.preview.video {
-   content: url("./assets/video-rect.svg");
+    content: url("./assets/video-rect.svg");
 }
+
 .lenses>.image>.preview-dual {
     position: absolute;
     object-fit: cover;
@@ -202,17 +204,18 @@ video.flip {
 }
 
 
-.range-container{
+.range-container {
     position: absolute;
     inset-inline-start: 50%;
     translate: -50% 0;
-    inset-block-start: 75vh;   
+    inset-block-start: 75vh;
     display: flex;
     justify-content: center;
     word-spacing: 15px;
     visibility: hidden;
 }
-.zoom-multiplier{
+
+.zoom-multiplier {
     position: absolute;
     inline-size: max-content;
     color: #fff;
@@ -220,11 +223,14 @@ video.flip {
     translate: 0 18px;
     pointer-events: none;
 }
-.range-container img{
+
+.range-container img {
     position: absolute;
     pointer-events: none;
 }
-.range-container .slider{
+
+.range-container .slider {
     position: absolute;
     left: 0;
+    padding-inline-start: 3px;
 }
