@@ -74,9 +74,9 @@ const drawOnCanvasAndSavePhoto = async (isMirrored = false) => {
       document.querySelector(".preview").src = imageDataUrl;
     if (isDualMode) {
       dualPreview = !dualPreview;
-      if (dualPreview)
-        document.querySelector(".preview-dual").src = imageDataUrl;
       if (!dualPreview)
+        document.querySelector(".preview-dual").src = imageDataUrl;
+      if (dualPreview)
         document.querySelector(".preview").src = imageDataUrl;
     }
     else {
