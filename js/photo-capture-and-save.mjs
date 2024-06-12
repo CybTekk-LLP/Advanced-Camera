@@ -19,7 +19,7 @@ export const capturePhoto = () => {
         document.querySelector(".switch-camera-facing-mode").click()
         setTimeout(() => {
           drawOnCanvasAndSavePhoto(facingModeButton.dataset.facingMode === "front");
-        }, 400)
+        }, 800)
       }, 1000)
     }
     drawOnCanvasAndSavePhoto(facingModeButton.dataset.facingMode === "front");
