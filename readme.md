@@ -1,6 +1,6 @@
-# CameraJS 📸
+# Advanced CameraJS 📸
 
-A vanilla JavaScript project packed with all the basic features of a camera, such as photo, video, switching camera and other necessary options, with everything easy-to-customise and use!
+A vanilla JavaScript project packed with all the basic features of a camera, such as photo, video, switching camera and other necessary options, with everything easy-to-customise and use! It also has some advanced options like dual-capture (front + rear) and zoom capabilities.
 
 <img src="./favicon.png" height="50px">
 
