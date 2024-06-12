@@ -3,7 +3,7 @@ export const streamWebCamVideo = (isFrontCamera = true) => {
   const constraints = {
     video: {
       facingMode: isFrontCamera ? "user" : "environment", // Toggle between front and rear cameras
-      zoom: true
+      zoom: true,
     },
   };
   window.navigator.mediaDevices
@@ -19,12 +19,11 @@ export const streamWebCamVideo = (isFrontCamera = true) => {
       const capabilities = track.getCapabilities();
       const settings = track.getSettings();
 
-
       const input = document.querySelector('input[type="range"]');
 
       // Check whether zoom is supported or not.
-      if (!('zoom' in settings)) {
-        return Promise.reject('Zoom is not supported by ' + track.label);
+      if (!("zoom" in settings)) {
+        return Promise.reject("Zoom is not supported by " + track.label);
       }
 
       // Map zoom to a slider element.
@@ -33,22 +32,25 @@ export const streamWebCamVideo = (isFrontCamera = true) => {
       input.step = capabilities.zoom.step;
       input.value = settings.zoom;
 
-      document.querySelector(".zoom-multiplier").textContent = `${~~capabilities.zoom.min
-        }x ${~~(capabilities.zoom.max + 3 * capabilities.zoom.min) / 4}x ${~~(3 * capabilities.zoom.max + capabilities.zoom.min) / 4}x ${~~capabilities.zoom.max}x`
+      document.querySelector(".zoom-multiplier").textContent = `${~~capabilities
+        .zoom.min}x ${
+        ~~(capabilities.zoom.max + 3 * capabilities.zoom.min) / 4
+      }x ${
+        ~~(3 * capabilities.zoom.max + capabilities.zoom.min) / 4
+      }x ${~~capabilities.zoom.max}x`;
 
-      console.log("min:", capabilities.zoom.min)
-      console.log("max:", capabilities.zoom.max)
-      console.log("step:", capabilities.zoom.step)
-      console.log("value:", settings.zoom)
-
-
+      console.log("min:", capabilities.zoom.min);
+      console.log("max:", capabilities.zoom.max);
+      console.log("step:", capabilities.zoom.step);
+      console.log("value:", settings.zoom);
 
       input.oninput = function (event) {
         track.applyConstraints({ advanced: [{ zoom: event.target.value }] });
-        document.querySelector(".slider").style.left = input.value * 120 / capabilities.zoom.max * 1.08 - 5.5 + "px";
-      }
+        document.querySelector(".slider").style.left =
+          ((input.value - 1) * 120) / capabilities.zoom.max + "px";
+      };
       input.hidden = false;
-      document.querySelector(".range-container").style.visibility = "visible"
+      document.querySelector(".range-container").style.visibility = "visible";
     })
     .catch((e) => {
       console.error(e);
