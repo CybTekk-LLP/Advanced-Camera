@@ -40,7 +40,7 @@ export const streamWebCamVideo = (isFrontCamera = true) => {
         track.applyConstraints({ advanced: [{ zoom: event.target.value }] });
       }
       input.hidden = false;
-      input.style.visibility = "visible"
+      document.querySelector(".range-container").style.visibility = "visible"
     })
     .catch((e) => {
       console.error(e);
