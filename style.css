@@ -231,6 +231,4 @@ video.flip {
 
 .range-container .slider {
     position: absolute;
-    left: 0;
-    padding-inline-start: 3px;
 }
