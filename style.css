@@ -96,7 +96,7 @@ video.flip {
     padding: 0.6rem;
     background-color: #1119289a;
     cursor: pointer;
-    translate: 0 -45px;
+    translate: 0 -44px;
 }
 
 .switch-camera-video-photo-mode label span {
@@ -197,40 +197,6 @@ video.flip {
     border-radius: 30px;
 }
 
-/* Filter lens effect on video (does not retain for camera pics or recordings for now */
-
-video[data-lens="none"] {
-    filter: unset;
-}
-
-video[data-lens="monochrome"] {
-    filter: grayscale(1);
-}
-
-video[data-lens*="gradient"] {
-    filter: saturate(0.1);
-}
-
-.filterLens:is(.none, .monochrome) {
-    display: none;
-}
-
-.filterLens:is(.gradient1) {
-    background-image: linear-gradient(rgba(255, 192, 203, 0.354) 50%, rgba(0, 0, 255, 0.12))
-}
-
-.filterLens:is(.gradient2) {
-    background-image: linear-gradient(rgba(128, 0, 128, 0.573) 50%, rgba(0, 0, 255, 0.59));
-}
-
-.filterLens:is(.gradient3) {
-    background-image: linear-gradient(rgba(147, 245, 139, 0.239), rgba(65, 105, 225, 0.284));
-}
-
-
-.filterLens:is(.gradient4) {
-    background-image: linear-gradient(rgba(255, 255, 0, 0.215), rgba(255, 255, 255, 0.436));
-}
 
 input[type="range"]#range{
     position: absolute;
