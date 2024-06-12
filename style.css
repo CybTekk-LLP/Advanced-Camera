@@ -203,4 +203,5 @@ input[type="range"]#range{
     inset-inline-start: 50%;
     translate: -50% 0;
     inset-block-start: 75vh;
+    visibility: hidden;
 }
