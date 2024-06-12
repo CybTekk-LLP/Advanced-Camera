@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Edge */
+    user-select: none;
+    /* preventing iOS tap highlight */
+    -webkit-tap-highlight-color: transparent;
+    /* Disable browser handling of all panning and zooming gestures, except for regular scrolling */
+    touch-action: pan-y;
+}
+
+body {
+    background-color: black;
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+#camera {
+    position: relative;
+}
+
+/* Video Element */
+video {
+    inline-size: 100vw;
+    block-size: calc(100vh - 220px);
+    object-fit: cover;
+    object-position: center;
+}
+
+video.flip {
+    scale: -1 1;
+}
+
+/* Video Controls */
+.controls {
+    display: flex;
+    block-size: 100px;
+    inline-size: 90vw;
+    margin-inline: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Video filters */
+
+.lenses {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 2;
+}
+
+.lenses>.image {
+    position: relative;
+}
+.lenses>.image>.preview {
+    object-fit: cover;
+    border-radius: 4px;
+    position: relative;
+    z-index: 1;
+}
+.lenses>.image>.preview-dual {
+    position: absolute;
+    object-fit: cover;
+    border-radius: 4px;
+    inset-inline-start: 20px;
+}
+
+/* Switch between video and photo capture modes */
+.switch-camera-video-photo-mode input[type="checkbox"] {
+    display: none;
+}
+
+.switch-camera-video-photo-mode {
+    position: absolute;
+    display: flex;
+    inline-size: 100%;
+    margin-inline: auto;
+    justify-content: center;
+    gap: 20px;
+    padding: 0.6rem;
+    background-color: #1119289a;
+    cursor: pointer;
+    translate: 0 -45px;
+}
+
+.switch-camera-video-photo-mode label span {
+    color: white;
+    padding-inline: 10px;
+    text-align: center;
+    mix-blend-mode: difference;
+}
+
+.switch-camera-video-photo-mode input[type="radio"] {
+    display: none;
+}
+
+.switch-camera-video-photo-mode input[type="radio"]+label {
+    color: #9CA3AF;
+    transition: scale 0.2s ease;
+}
+
+.switch-camera-video-photo-mode input[type="radio"]:checked+label {
+    color: #fff;
+    scale: 1.1;
+}
+
+/* Capture button */
+#camera:has(.switch-camera-video-photo-mode input[type="radio"]#video-mode:checked) .capture-button .capture-icon {
+    fill: red;
+}
+
+/* Switch between rear and front camera modes */
+.switch-camera-facing-mode {
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.switch-camera-facing-mode:has(.rotating) {
+    pointer-events: none;
+}
+
+.switch-camera-facing-mode .rotate {
+    cursor: pointer;
+
+}
+
+.switch-camera-facing-mode .rotate:is(.rotating) {
+    animation: rotate 1.5s both;
+    transform-origin: 50% calc(50% + 1.1px);
+
+}
+
+@keyframes rotate {
+    0% {
+        rotate: 0deg;
+
+    }
+
+    100% {
+        rotate: -180deg;
+    }
+}
+
+/* Capture button to click and take photos */
+.capture-button {
+    cursor: pointer;
+}
+
+.capture-button:is(.click) .capture-icon {
+    animation: click 0.2s ease-in-out both;
+    transform-origin: center;
+}
+
+@keyframes click {
+    0% {
+        scale: 1;
+    }
+
+    50% {
+        scale: 0.85;
+    }
+
+    100% {
+        scale: 1;
+    }
+}
+
+.record {
+    display: block;
+    position: fixed;
+    inset-block-start: 10px;
+    inset-inline-start: 50%;
+    translate: -50% 0;
+    background-color: red;
+    min-inline-size: 9.5ch;
+    text-align: start;
+    padding: 10px;
+    color: white;
+    font-kerning: none;
+    letter-spacing: 0.1rem;
+    border-radius: 30px;
+}
+
+/* Filter lens effect on video (does not retain for camera pics or recordings for now */
+
+video[data-lens="none"] {
+    filter: unset;
+}
+
+video[data-lens="monochrome"] {
+    filter: grayscale(1);
+}
+
+video[data-lens*="gradient"] {
+    filter: saturate(0.1);
+}
+
+.filterLens:is(.none, .monochrome) {
+    display: none;
+}
+
+.filterLens:is(.gradient1) {
+    background-image: linear-gradient(rgba(255, 192, 203, 0.354) 50%, rgba(0, 0, 255, 0.12))
+}
+
+.filterLens:is(.gradient2) {
+    background-image: linear-gradient(rgba(128, 0, 128, 0.573) 50%, rgba(0, 0, 255, 0.59));
+}
+
+.filterLens:is(.gradient3) {
+    background-image: linear-gradient(rgba(147, 245, 139, 0.239), rgba(65, 105, 225, 0.284));
+}
+
+
+.filterLens:is(.gradient4) {
+    background-image: linear-gradient(rgba(255, 255, 0, 0.215), rgba(255, 255, 255, 0.436));
+}
+
+input[type="range"]#range{
+    position: absolute;
+    inset-inline-start: 0;
+}
