@@ -7,8 +7,10 @@ const recordingIndicator = document.createElement("div");
 export const captureVideo = () => {
   const videoButton = document.querySelector(".capture-button");
   videoButton.addEventListener("click", () => {
-    const isVideoMode = document.querySelector(
-      ".switch-camera-video-photo-mode input[type='radio'][name='modes']:checked").value === "video-mode"
+    const isVideoMode =
+      document.querySelector(
+        ".switch-camera-video-photo-mode input[type='radio'][name='modes']:checked"
+      ).value === "video-mode";
     if (!isVideoMode) return;
     const facingModeButton = document.querySelector(
       ".switch-camera-facing-mode"
@@ -19,12 +21,14 @@ export const captureVideo = () => {
 const modes = document.querySelectorAll(
   ".switch-camera-video-photo-mode input[type='radio']"
 );
-modes.forEach(mode => mode.addEventListener("change", () => {
-  if (mediaRecorder && mediaRecorder.state === "recording") {
-    mediaRecorder.stop();
-    clearInterval(timerInterval);
-  }
-}));
+modes.forEach((mode) =>
+  mode.addEventListener("change", () => {
+    if (mediaRecorder && mediaRecorder.state === "recording") {
+      mediaRecorder.stop();
+      clearInterval(timerInterval);
+    }
+  })
+);
 
 const recordVideo = async (facingModeButton) => {
   const video = document.getElementById("stream");
@@ -58,7 +62,6 @@ const recordVideo = async (facingModeButton) => {
       clearInterval(timerInterval);
     };
 
-
     facingModeButton.addEventListener("click", () => {
       if (mediaRecorder && mediaRecorder.state === "recording") {
         mediaRecorder.stop();
@@ -83,10 +86,10 @@ const saveRecordedVideo = () => {
   const link = document.createElement("a");
   link.href = videoUrl;
   link.download = filename;
-  // link.click();
+  link.click();
   document.querySelector(".preview").src = videoUrl;
-  document.querySelector(".preview").classList.add("video")
-  document.querySelector(".preview-dual").src = "./assets/rect-dual.svg"
+  document.querySelector(".preview").classList.add("video");
+  document.querySelector(".preview-dual").src = "./assets/rect-dual.svg";
   chunks = [];
 };
 

@@ -1,9 +1,10 @@
 export const capturePhoto = () => {
   const photoButton = document.querySelector(".capture-button");
   photoButton.addEventListener("click", () => {
-
-    const isVideoMode = document.querySelector(
-      ".switch-camera-video-photo-mode input[type='radio'][name='modes']:checked").value === "video-mode"
+    const isVideoMode =
+      document.querySelector(
+        ".switch-camera-video-photo-mode input[type='radio'][name='modes']:checked"
+      ).value === "video-mode";
     if (isVideoMode) return;
     const facingModeButton = document.querySelector(
       ".switch-camera-facing-mode"
@@ -12,20 +13,23 @@ export const capturePhoto = () => {
     setTimeout(() => {
       photoButton.classList.remove("click");
     }, 500);
-    const isDualMode = document.querySelector(
-      ".switch-camera-video-photo-mode input[type='radio'][name='modes']:checked").value === "dual-mode"
+    const isDualMode =
+      document.querySelector(
+        ".switch-camera-video-photo-mode input[type='radio'][name='modes']:checked"
+      ).value === "dual-mode";
     if (isDualMode) {
       setTimeout(() => {
-        document.querySelector(".switch-camera-facing-mode").click()
+        document.querySelector(".switch-camera-facing-mode").click();
         setTimeout(() => {
-          drawOnCanvasAndSavePhoto(facingModeButton.dataset.facingMode === "front");
-        }, 800)
-      }, 1000)
+          drawOnCanvasAndSavePhoto(
+            facingModeButton.dataset.facingMode === "front"
+          );
+        }, 800);
+      }, 1000);
     }
     drawOnCanvasAndSavePhoto(facingModeButton.dataset.facingMode === "front");
   });
 };
-
 
 let dualPreview = false;
 
@@ -58,31 +62,28 @@ const drawOnCanvasAndSavePhoto = async (isMirrored = false) => {
   }, 200);
   context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-
   try {
     const imageDataUrl = canvas.toDataURL("image/png", 0.9);
     const link = document.createElement("a");
     const timestamp = new Date().toISOString().replace(/[:.]/g, "");
     link.href = imageDataUrl;
     link.download = `photo_${timestamp}.png`;
-    // link.click();
+    link.click();
 
-    const isDualMode = document.querySelector(
-      ".switch-camera-video-photo-mode input[type='radio'][name='modes']:checked").value === "dual-mode"
-    document.querySelector(".preview")?.classList?.remove("video")
-    if (!isDualMode)
-      document.querySelector(".preview").src = imageDataUrl;
+    const isDualMode =
+      document.querySelector(
+        ".switch-camera-video-photo-mode input[type='radio'][name='modes']:checked"
+      ).value === "dual-mode";
+    document.querySelector(".preview")?.classList?.remove("video");
+    if (!isDualMode) document.querySelector(".preview").src = imageDataUrl;
     if (isDualMode) {
       dualPreview = !dualPreview;
       if (!dualPreview)
         document.querySelector(".preview-dual").src = imageDataUrl;
-      if (dualPreview)
-        document.querySelector(".preview").src = imageDataUrl;
+      if (dualPreview) document.querySelector(".preview").src = imageDataUrl;
+    } else {
+      document.querySelector(".preview-dual").src = "./assets/rect-dual.svg";
     }
-    else {
-      document.querySelector(".preview-dual").src = "./assets/rect-dual.svg"
-    }
-
   } catch (error) {
     console.error("Error capturing photo:", error);
   }
