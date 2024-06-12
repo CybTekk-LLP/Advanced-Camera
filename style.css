@@ -78,12 +78,6 @@ video.flip {
 .lenses>.image>.preview.video {
    content: url("./assets/video-rect.svg");
 }
-.lenses>.image>.preview{
-    content: url("./assets/rect.svg");
-}
-.lenses>.image>.preview-dual{
-    content: url("./assets/rect-dual.svg");
-}
 .lenses>.image>.preview-dual {
     position: absolute;
     object-fit: cover;
