@@ -210,7 +210,7 @@ video.flip {
     display: flex;
     justify-content: center;
     word-spacing: 15px;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 .zoom-multiplier{
     position: absolute;
@@ -221,5 +221,6 @@ video.flip {
 }
 .range-container img{
     position: absolute;
+    opacity: 0.6;
     pointer-events: none;
 }

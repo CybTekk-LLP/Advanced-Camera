@@ -33,8 +33,8 @@ export const streamWebCamVideo = (isFrontCamera = true) => {
       input.step = capabilities.zoom.step;
       input.value = settings.zoom;
 
-      document.querySelector(".zoom-multiplier").textContent = `${capabilities.zoom.min
-        } ${(capabilities.zoom.max + 3 * capabilities.zoom.min) / 4} ${(3 * capabilities.zoom.max + capabilities.zoom.min) / 4} ${capabilities.zoom.max}`
+      document.querySelector(".zoom-multiplier").textContent = `${~~capabilities.zoom.min
+        }x ${~~(capabilities.zoom.max + 3 * capabilities.zoom.min) / 4}x ${~~(3 * capabilities.zoom.max + capabilities.zoom.min) / 4}x ${~~capabilities.zoom.max}x`
 
       console.log("min:", capabilities.zoom.min)
       console.log("max:", capabilities.zoom.max)
