@@ -37,7 +37,7 @@ body {
 /* Video Element */
 video {
     inline-size: 100vw;
-    block-size: calc(100vh - 220px);
+    block-size: calc(100vh - 150px);
     object-fit: cover;
     object-position: center;
 }
@@ -200,7 +200,7 @@ video.flip {
 
 input[type="range"]#range{
     position: absolute;
-    inset-inline-end: -30px;
-    rotate: -90deg;
-    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    translate: -50% 0;
+    inset-block-start: 85%;
 }
