@@ -74,6 +74,10 @@ video.flip {
     position: relative;
     z-index: 1;
 }
+
+.lenses>.image>.preview.video {
+   content: url("./assets/video-rect.svg");
+}
 .lenses>.image>.preview-dual {
     position: absolute;
     object-fit: cover;

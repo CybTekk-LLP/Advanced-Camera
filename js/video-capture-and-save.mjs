@@ -84,7 +84,8 @@ const saveRecordedVideo = () => {
   link.href = videoUrl;
   link.download = filename;
   // link.click();
-  document.querySelector(".preview").src = videoUrl
+  document.querySelector(".preview").src = videoUrl;
+  document.querySelector(".preview").classList.add("video")
   document.querySelector(".preview-dual").src = "./assets/rect-dual.svg"
   chunks = [];
 };

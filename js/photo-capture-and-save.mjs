@@ -69,9 +69,9 @@ const drawOnCanvasAndSavePhoto = async (isMirrored = false) => {
 
     const isDualMode = document.querySelector(
       ".switch-camera-video-photo-mode input[type='radio'][name='modes']:checked").value === "dual-mode"
+    document.querySelector(".preview")?.classList?.remove("video")
     if (!isDualMode)
       document.querySelector(".preview").src = imageDataUrl;
-
     if (isDualMode) {
       dualPreview = !dualPreview;
       if (dualPreview)
