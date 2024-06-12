@@ -31,6 +31,11 @@ export const streamWebCamVideo = (isFrontCamera = true) => {
       input.max = capabilities.zoom.max;
       input.step = capabilities.zoom.step;
       input.value = settings.zoom;
+      console.log("min:", capabilities.zoom.min)
+      console.log("max:", capabilities.zoom.max)
+      console.log("step:", capabilities.zoom.step)
+      console.log("value:", settings.zoom)
+      
       input.oninput = function (event) {
         track.applyConstraints({ advanced: [{ zoom: event.target.value }] });
       }
